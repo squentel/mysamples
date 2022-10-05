@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: attacker
+  labels:
+    app.kubernetes.io/name: attacker
+    app.kubernetes.io/part-of: crowdstrike-demo
+    app.kubernetes.io/created-by: crowdstrike
+spec:
+  selector:
+    matchLabels:
+      run: attacker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: attacker
+        app.kubernetes.io/name: attacker
+        app.kubernetes.io/part-of: crowdstrike-demo
+        app.kubernetes.io/created-by: crowdstrike
+      annotations:
+        sensor.falcon-system.crowdstrike.com/injection: enabled
+    spec:
+      containers:
+        - name: app
+          image: ubuntu:latest
+          imagePullPolicy: Always
+          # Just spin & wait forever
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 30; done;" ]
+          ports:
+            - containerPort: 80
+              name: payloaddelivery
+            - containerPort: 4444
+              name: c2
