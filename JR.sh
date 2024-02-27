@@ -40,4 +40,4 @@ expect {
                 send "y\r"}
         }
 expect "Server started."
-interact
+interact 
